@@ -28,7 +28,8 @@ io.on("connection", (socket) => {
   // Handle incoming messages and broadcast them to all clients
   socket.on('send_message', (data) => {
     io.sockets.emit('receive_message', {
-      user_id: data.user_id,
+      sender_id: data.sender_id,
+      receiver_id: data.receiver_id,
       message: data.message,
       user_type: data.user_type
     });
